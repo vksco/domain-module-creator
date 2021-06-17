@@ -32,9 +32,9 @@ class ControllerGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.Http.Controllers.Controller', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

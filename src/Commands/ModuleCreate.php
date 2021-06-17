@@ -16,49 +16,49 @@ class ModuleCreate extends Command
         sleep(2);
         $requestApi = app()->make('Request');
         $requestApi->setRequest([
-            'TableName'     => $this->argument('name'),
-            'template'      => null,
-            'softdeletes'   => $this->option('soft-deletes'),
+            'TableName' => $this->argument('name'),
+            'template' => null,
+            'softdeletes' => $this->option('soft-deletes'),
             'no-timestamps' => $this->option('no-timestamps'),
             'notifications' => $this->option('notifications'),
-            'version'       => $this->option('api-version'),
+            'version' => $this->option('api-version'),
         ]);
 
-        $parser     = app()->make('Parser');
-        $generator  = app()->make('Generator');
+        $parser = app()->make('Parser');
+        $generator = app()->make('Generator');
 
         $commands = [
             [
-                'execute'   => array($generator , 'createModel'),
-                'type'      => 'Model'
+                'execute' => [$generator , 'createModel'],
+                'type' => 'Model',
             ], [
-                'execute'   => array($generator, 'createEvents'),
-                'type'      => 'Events'
+                'execute' => [$generator, 'createEvents'],
+                'type' => 'Events',
             ], [
-                'execute'   => array($generator, 'createListners'),
-                'type'      => 'Listners'
+                'execute' => [$generator, 'createListners'],
+                'type' => 'Listners',
             ], [
-                'execute'   => array($generator, 'createNotifications'),
-                'type'      => 'Notifications'
+                'execute' => [$generator, 'createNotifications'],
+                'type' => 'Notifications',
             ], [
-                'execute'   => array($generator, 'createObservers'),
-                'type'      => 'Observers'
+                'execute' => [$generator, 'createObservers'],
+                'type' => 'Observers',
             ], [
-                'execute'   => array($generator, 'createServices'),
-                'type'      => 'Services'
+                'execute' => [$generator, 'createServices'],
+                'type' => 'Services',
             ], [
-                'execute'   => array($generator, 'createRoutes'),
-                'type'      => 'Routes'
+                'execute' => [$generator, 'createRoutes'],
+                'type' => 'Routes',
             ], [
-                'execute'   => array($generator, 'createController'),
-                'type'      => 'Controller'
+                'execute' => [$generator, 'createController'],
+                'type' => 'Controller',
             ], [
-                'execute'   => array($generator, 'createRequests'),
-                'type'      => 'Requests'
+                'execute' => [$generator, 'createRequests'],
+                'type' => 'Requests',
             ], [
-                'execute'   => array($generator, 'createMigration'),
-                'type'      => 'Requests'
-            ]
+                'execute' => [$generator, 'createMigration'],
+                'type' => 'Requests',
+            ],
         ];
 
         foreach ($commands as $command) {

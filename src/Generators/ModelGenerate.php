@@ -35,7 +35,7 @@ class ModelGenerate
         return "<?php\n\n".view('module-interface::template.model.model', [
             'parser' => $this->parser,
             'dataSystem' => $this->dataSystem,
-            'namespace' => $this->paths->getNamespace()
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

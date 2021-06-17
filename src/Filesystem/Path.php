@@ -37,7 +37,7 @@ class Path
     {
         $this->parser = app()->make('Parser');
 
-        $this->request      = app()->make('Request');
+        $this->request = app()->make('Request');
         $this->data = $this->request->getRequest();
     }
 
@@ -54,6 +54,7 @@ class Path
     public function modelPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Models";
     }
 
@@ -65,6 +66,7 @@ class Path
     public function eventPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Events";
     }
 
@@ -76,6 +78,7 @@ class Path
     public function listnersPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Listeners";
     }
 
@@ -87,6 +90,7 @@ class Path
     public function notificationsPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Notifications";
     }
 
@@ -98,6 +102,7 @@ class Path
     public function observersPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Observers";
     }
 
@@ -109,6 +114,7 @@ class Path
     public function servicesPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Services";
     }
 
@@ -121,12 +127,14 @@ class Path
     {
         $version = "";
 
-        if(array_key_exists('version', $this->data ) && $this->data ['version']){
+        if (array_key_exists('version', $this->data) && $this->data ['version']) {
             $version = strtoupper($this->data['version']);
+
             return base_path() . "/routes/$version";
         }
 
         $model_name = ucfirst($this->parser->singular());
+
         return base_path() . "/routes/$model_name";
     }
 
@@ -139,11 +147,12 @@ class Path
     {
         $version = "";
 
-        if(array_key_exists('version', $this->data ) && $this->data ['version']){
+        if (array_key_exists('version', $this->data) && $this->data ['version']) {
             $version = strtoupper($this->data['version']);
         }
 
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Http/Controllers/$version";
     }
 
@@ -155,7 +164,7 @@ class Path
     public function requestsPath()
     {
         $model_name = ucfirst($this->parser->singular());
+
         return config('domain-module-creator.domain_path') . "/" .config("domain-module-creator.domain_folder_name") . "/$model_name/Http/Requests";
     }
-
 }

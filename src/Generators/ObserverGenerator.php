@@ -32,9 +32,9 @@ class ObserverGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.Observers.Observer', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

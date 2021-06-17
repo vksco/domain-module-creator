@@ -32,10 +32,10 @@ class RequestsGenerator
     public function generate($eventType)
     {
         return "<?php\n\n".view('module-interface::template.Http.Requests.Request', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
-            'event'         => $eventType
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
+            'event' => $eventType,
         ])->render();
     }
 }

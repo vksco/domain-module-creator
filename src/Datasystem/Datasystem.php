@@ -80,11 +80,11 @@ class Datasystem
     private function relationData()
     {
         $onData = collect($this->data)->reject(function ($value, $key) {
-            return !str_contains($key, 'on');
+            return ! str_contains($key, 'on');
         });
 
         $foreignKeys = collect($this->data)->reject(function ($value, $key) {
-            return !str_contains($key, 'tbl');
+            return ! str_contains($key, 'tbl');
         });
 
         $this->onData = array_values($onData->toArray());
@@ -103,10 +103,10 @@ class Datasystem
     {
         $data = collect($this->data)->reject(function ($value, $key) use ($spec) {
             if ($spec == 'migration') {
-                return !str_contains($key, 'opt');
+                return ! str_contains($key, 'opt');
             }
 
-            return !str_contains($key, 'atr');
+            return ! str_contains($key, 'atr');
         });
 
         return array_values($data->toArray());
@@ -171,5 +171,4 @@ class Datasystem
     {
         return $this->data;
     }
-
 }

@@ -32,9 +32,9 @@ class ListenerGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.Listeners.Listener', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

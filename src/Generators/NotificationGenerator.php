@@ -32,10 +32,10 @@ class NotificationGenerator
     public function generate($type)
     {
         return "<?php\n\n".view('module-interface::template.Notifications.Notification', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
-            'event_type'    => ucfirst($type)
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
+            'event_type' => ucfirst($type),
         ])->render();
     }
 }

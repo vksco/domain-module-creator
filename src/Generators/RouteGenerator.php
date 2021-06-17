@@ -32,9 +32,9 @@ class RouteGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.routes.web', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

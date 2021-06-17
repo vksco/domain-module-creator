@@ -32,9 +32,9 @@ class ServiceGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.Services.Service', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem,
-            'namespace'     => $this->paths->getNamespace(),
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
+            'namespace' => $this->paths->getNamespace(),
         ])->render();
     }
 }

@@ -3,10 +3,8 @@
 namespace Vksco\DomainModuleCreator;
 
 use Spatie\LaravelPackageTools\Package;
-use Vksco\DomainModuleCreator\Commands\ModuleCreate;
-use Vksco\DomainModuleCreator\Commands\ModuleUpdate;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Vksco\DomainModuleCreator\Commands\DomainModuleCreatorCommand;
+use Vksco\DomainModuleCreator\Commands\ModuleCreate;
 
 class DomainModuleCreatorServiceProvider extends PackageServiceProvider
 {
@@ -59,6 +57,5 @@ class DomainModuleCreatorServiceProvider extends PackageServiceProvider
         $this->app->singleton('RequestsGenerator', \Vksco\DomainModuleCreator\Generators\RequestsGenerator::class);
 
         $this->app->singleton('MigartionGenerator', \Vksco\DomainModuleCreator\Generators\MigartionGenerator::class);
-
     }
 }

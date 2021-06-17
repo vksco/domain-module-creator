@@ -64,7 +64,7 @@ class DatabaseManager
     public function getTablesNames()
     {
         return $this->database->tableNames()->filter(function ($name) {
-            return !in_array($name, $this->exclude);
+            return ! in_array($name, $this->exclude);
         });
     }
 }

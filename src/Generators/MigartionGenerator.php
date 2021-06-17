@@ -32,8 +32,8 @@ class MigartionGenerator
     public function generate()
     {
         return "<?php\n\n".view('module-interface::template.migration.migration', [
-            'parser'        => $this->parser,
-            'dataSystem'    => $this->dataSystem
+            'parser' => $this->parser,
+            'dataSystem' => $this->dataSystem,
         ])->render();
     }
 }

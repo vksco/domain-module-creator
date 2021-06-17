@@ -4,7 +4,6 @@ namespace Vksco\DomainModuleCreator\Generators;
 
 use Vksco\DomainModuleCreator\Filesystem\Filesystem;
 
-
 /**
  * Class     Generator.
  *
@@ -80,20 +79,20 @@ class Generator extends Filesystem
      */
     public function __construct()
     {
-        $this->paths        = app()->make('Path');
-        $this->parser       = app()->make('Parser');
-        $this->request      = app()->make('Request');
+        $this->paths = app()->make('Path');
+        $this->parser = app()->make('Parser');
+        $this->request = app()->make('Request');
 
-        $this->model        = app()->make('ModelGenerate');
-        $this->event        = app()->make('EventGenerate');
-        $this->listners     = app()->make('ListenerGenerator');
-        $this->notifications= app()->make('NotificationGenerator');
-        $this->observers    = app()->make('ObserverGenerator');
-        $this->services     = app()->make('ServiceGenerator');
-        $this->routes       = app()->make('RouteGenerator');
-        $this->controller   = app()->make('ControllerGenerator');
-        $this->requests     = app()->make('RequestsGenerator');
-        $this->migration    = app()->make('MigartionGenerator');
+        $this->model = app()->make('ModelGenerate');
+        $this->event = app()->make('EventGenerate');
+        $this->listners = app()->make('ListenerGenerator');
+        $this->notifications = app()->make('NotificationGenerator');
+        $this->observers = app()->make('ObserverGenerator');
+        $this->services = app()->make('ServiceGenerator');
+        $this->routes = app()->make('RouteGenerator');
+        $this->controller = app()->make('ControllerGenerator');
+        $this->requests = app()->make('RequestsGenerator');
+        $this->migration = app()->make('MigartionGenerator');
     }
 
     /**
@@ -143,7 +142,9 @@ class Generator extends Filesystem
         $data = $this->request->getRequest();
 
         // checl if request has notification to create
-        if( $data['notifications'] == false ) return;
+        if ($data['notifications'] == false) {
+            return;
+        }
 
         $this->makeDir($this->paths->notificationsPath());
         $eventTypes = config('domain-module-creator.event_types');
@@ -221,7 +222,6 @@ class Generator extends Filesystem
     {
         $fileName = date('Y').'_'.date('m').'_'.date('d').'_'.date('his').'_create_'.$this->parser->plural().'_table.php';
 
-        $this->make(database_path() . "/migrations/" . $fileName , $this->migration->generate());
+        $this->make(database_path() . "/migrations/" . $fileName, $this->migration->generate());
     }
-
 }
